@@ -3,6 +3,7 @@
 </template>
 
 <script>
+  import screen from './components/screen.vue';
   import keypad from './components/keypad.vue';
   import './assets/global.css'
 
