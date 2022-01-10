@@ -1,4 +1,4 @@
-.theme1 {
+.dark {
     /* background colors */
     --main-back: hsl(222, 26%, 31%);
     --keys-back: hsl(223, 31%, 20%);
@@ -11,13 +11,13 @@
     --del-color: hsl(225, 21%, 49%);
     --del-shadow: hsl(224, 28%, 35%);
     /* text colors */
-    --body-text: hsl(0, 0, 100%);
+    --body-text: hsl(0, 0%, 100%);
     --key-text: hsl(221, 14%, 31%);
-    --eql-text: hsl(0, 0, 100%);
-    --del-text: hsl(0, 0, 100%);
+    --eql-text: hsl(0, 0%, 100%);
+    --del-text: hsl(0, 0%, 100%);
   }
   
-  .theme2 {
+  .light {
     /* background colors */
     --main-back: hsl(0, 0%, 90%);
     --keys-back: hsl(0, 5%, 81%);
@@ -32,11 +32,11 @@
     /* text colors */
     --body-text: hsl(60, 10%, 19%);
     --key-text: hsl(60, 10%, 19%);
-    --eql-text: hsl(0, 0, 100%);
-    --del-text: hsl(0, 0, 100%);
+    --eql-text: hsl(0, 0%, 100%);
+    --del-text: hsl(0, 0%, 100%);
   }
   
-  .theme3 {
+  .high-contrast {
     /* background colors */
     --main-back: hsl(268, 75%, 9%);
     --keys-back: hsl(268, 71%, 12%);
@@ -52,5 +52,5 @@
     --body-text: hsl(52, 100%, 62%);
     --key-text: hsl(52, 100%, 62%);
     --eql-text: hsl(198, 20%, 13%);
-    --del-text: hsl(0, 0, 100%);
+    --del-text: hsl(0, 0%, 100%);
   }
