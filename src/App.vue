@@ -1,5 +1,13 @@
 <template>
-  <keypad></keypad>
+  <header>
+    <h1>calc</h1>
+  </header>
+  <section>
+    <screen></screen>
+  </section>
+  <section>
+    <keypad></keypad>
+  </section>
 </template>
 
 <script>
