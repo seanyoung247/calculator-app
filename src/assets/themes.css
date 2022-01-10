@@ -1,0 +1,56 @@
+.theme1 {
+    /* background colors */
+    --main-back: hsl(222, 26%, 31%);
+    --keys-back: hsl(223, 31%, 20%);
+    --screen-back: hsl(224, 36%, 15%);
+    /* key colors */
+    --key-color: hsl(30, 25%, 89%);
+    --key-shadow: hsl(28, 16%, 65%);
+    --eql-color: hsl(6, 63%, 50%);
+    --eql-shadow: hsl(6, 70%, 34%);
+    --del-color: hsl(225, 21%, 49%);
+    --del-shadow: hsl(224, 28%, 35%);
+    /* text colors */
+    --body-text: hsl(0, 0, 100%);
+    --key-text: hsl(221, 14%, 31%);
+    --eql-text: hsl(0, 0, 100%);
+    --del-text: hsl(0, 0, 100%);
+  }
+  
+  .theme2 {
+    /* background colors */
+    --main-back: hsl(0, 0%, 90%);
+    --keys-back: hsl(0, 5%, 81%);
+    --screen-back: hsl(0, 0%, 93%);
+    /* key colors */
+    --key-color: hsl(45, 7%, 89%);
+    --key-shadow: hsl(35, 11%, 61%);
+    --eql-color: hsl(25, 98%, 40%);
+    --eql-shadow: hsl(25, 99%, 27%);
+    --del-color: hsl(185, 42%, 37%);
+    --del-shadow: hsl(185, 58%, 25%);
+    /* text colors */
+    --body-text: hsl(60, 10%, 19%);
+    --key-text: hsl(60, 10%, 19%);
+    --eql-text: hsl(0, 0, 100%);
+    --del-text: hsl(0, 0, 100%);
+  }
+  
+  .theme3 {
+    /* background colors */
+    --main-back: hsl(268, 75%, 9%);
+    --keys-back: hsl(268, 71%, 12%);
+    --screen-back: hsl(268, 71%, 12%);
+    /* key colors */
+    --key-color: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+    --eql-color: hsl(176, 100%, 44%);
+    --eql-shadow: hsl(177, 92%, 70%);
+    --del-color: hsl(281, 89%, 26%);
+    --del-shadow: hsl(285, 91%, 52%);
+    /* text colors */
+    --body-text: hsl(52, 100%, 62%);
+    --key-text: hsl(52, 100%, 62%);
+    --eql-text: hsl(198, 20%, 13%);
+    --del-text: hsl(0, 0, 100%);
+  }
