@@ -5,12 +5,12 @@
 </template>
 
 <script>
-export default {
-  name: 'calculator',
-  props: {
-    msg: String
+  export default {
+    name: 'calculator',
+    props: {
+      msg: String
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

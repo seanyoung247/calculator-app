@@ -1,17 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <calculator msg="Caclulator App"/>
+  <keypad></keypad>
 </template>
 
 <script>
-import calculator from './components/calculator.vue'
-
-export default {
-  name: 'App',
-  components: {
-    calculator
+  import keypad from './components/keypad.vue';
+  export default {
+    name: 'App',
+    components: {
+      keypad
+    }
   }
-}
 </script>
 
 <style>
