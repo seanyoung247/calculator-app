@@ -1,26 +1,47 @@
 <template>
   <div id="key-container">
-    <button v-on:click="callback">1</button>
-    <button v-on:click="callback">2</button>
-    <button v-on:click="callback">3</button>
-    <button v-on:click="callback">4</button>
-    <button v-on:click="callback">5</button>
-    <button v-on:click="callback">6</button>
-    <button v-on:click="callback">7</button>
-    <button v-on:click="callback">8</button>
+    <button v-for="key in keys" 
+      v-bind:key="key.text" 
+      class="key"
+      v-bind:class="key.type" 
+      v-on:click="key.action">
+
+      {{ key.text }}
+    </button>
+
   </div>
 </template>
 
 <script>
-  // const keys = [
+  const keys = [
+    { text: "7", action: callback, type: ['num'] },
+    { text: "8", action: callback, type: ['num'] },
+    { text: "9", action: callback, type: ['num'] },
+    { text: "del", action: callback, type: ['del'] },
 
-  // ]
+    { text: "4", action: callback, type: ['num'] },
+    { text: "5", action: callback, type: ['num'] },
+    { text: "6", action: callback, type: ['num'] },
+    { text: "+", action: callback, type: ['num'] },
 
+    { text: "1", action: callback, type: ['num'] },
+    { text: "2", action: callback, type: ['num'] },
+    { text: "3", action: callback, type: ['num'] },
+    { text: "-", action: callback, type: ['num'] },
+
+    { text: ".", action: callback, type: ['num'] },
+    { text: "0", action: callback, type: ['num'] },
+    { text: "/", action: callback, type: ['num'] },
+    { text: "x", action: callback, type: ['num'] },
+
+    { text: "reset", action: callback, type: ['del', 'wide'] },
+    { text: "=", action: callback, type: ['eql', 'wide'] }
+  ];
 
   export default {
     name: 'keypad',
     data() { return {
-      callback: callback
+      keys: keys
     }}
   }
 
