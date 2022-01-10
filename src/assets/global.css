@@ -20,11 +20,14 @@
 
 body {
   display: flex;
+  
+  flex-direction: column;
+  
   justify-content: center;
-  align-content: center;
+  align-items: center;
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 
   background-color: var(--main-back);
 }
@@ -32,6 +35,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
+
   gap: var(--app-padding);
   width: var(--app-width);
   padding: var(--app-padding);
@@ -41,16 +45,16 @@ body {
 
   color: var(--body-text);
 
-  border: 1px solid black;
+  border: 1px solid red;
 }
 
 @media only screen and (min-width: 1440px) {
-    :root {
-        --app-width: 600px;
-        --app-padding: 30px;
-        --key-padding: 24px;
-        --key-width: 101px;
-        --screen-height: 128px;
-        --screen-font: 42px;
-    }
+  :root {
+     --app-width: 600px;
+     --app-padding: 30px;
+     --key-padding: 24px;
+     --key-width: 101px;
+     --screen-height: 128px;
+     --screen-font: 42px;
+  }
 }
