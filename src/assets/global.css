@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+@import './themes.css';
+
+:root {
+  --app-width: 375px;
+  --app-padding: 24px;
+  --app-radius: 8px;
+  --key-padding: 12px;
+  --key-width: 60px;
+  --key-height: 60px;
+  --screen-height: 88px;
+  --screen-font: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--main-back);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-padding);
+  width: var(--app-width);
+  padding: var(--app-padding);
+
+  font-family: 'Spartan', sans-serif;
+  font-size: 16px;
+
+  color: var(--body-text);
+
+  border: 1px solid black;
+}
+
+@media only screen and (min-width: 1440px) {
+    :root {
+        --app-width: 600px;
+        --app-padding: 30px;
+        --key-padding: 24px;
+        --key-width: 101px;
+        --screen-height: 128px;
+        --screen-font: 42px;
+    }
+}
