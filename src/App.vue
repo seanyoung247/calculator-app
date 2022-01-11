@@ -11,7 +11,11 @@
     <screen :value="expr.formatted"></screen>
   </section>
   <section>
-    <keypad></keypad>
+    <keypad 
+      @clr="_=>expr.clear()"
+      @del="_=>expr.del()"
+      @eql="_=>expr.evaluate()"
+      @chr="v=>expr.addCharacter(v)"></keypad>
   </section>
 </template>
 
@@ -19,6 +23,9 @@
   import themeToggler from './components/theme.vue';
   import screen from './components/screen.vue';
   import keypad from './components/keypad.vue';
+
+  import Calc from './calc.js';
+
   import './assets/global.css'
 
   const themes = [
@@ -34,7 +41,8 @@
     },
     data() { return {
       theme: themes[0],
-      themes: themes     
+      themes: themes,
+      expr: new Calc()
     }},
     methods: {
       setTheme(name) {
