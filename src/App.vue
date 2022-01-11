@@ -1,7 +1,11 @@
 <template>
   <header>
     <h1>calc</h1>
-    <theme-toggler :themes="themes"></theme-toggler>
+    <theme-toggler 
+      :themes="themes" 
+      :value="theme" 
+      @setTheme="setTheme">
+    </theme-toggler>
   </header>
   <section>
     <screen></screen>
@@ -32,13 +36,16 @@
       theme: themes[0],
       themes: themes     
     }},
+    methods: {
+      setTheme(name) {
+        document.body.classList.remove(this.theme);
+        this.theme = name;
+        document.body.classList.add(this.theme);
+      }
+    },
     mounted() {
-      setTheme(this.theme);
+      this.setTheme(this.theme);
     }
-  }
-
-  function setTheme(name) {
-    document.body.classList.add(name);
   }
 </script>
 
@@ -46,7 +53,6 @@
   header {
     display: flex;
     width: 100%;
-    border: 1px solid red;
     justify-content: space-between;
   }
 </style>

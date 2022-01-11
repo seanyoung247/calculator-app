@@ -1,22 +1,33 @@
 <template>
-    <fieldset class="theme-toggler">
-      <legend>Theme</legend>
-      <ul class="theme-list">
-        <li v-for="(theme, index) in themes" v-bind:key="index">
-          <label class="theme-opt" v-bind:for="theme">
-            <span>{{ index + 1 }}</span>
-            <span><input type="radio" name="themer" v-bind:id="theme"></span>
-          </label>
-        </li>
-      </ul>
-    </fieldset>
+  <fieldset class="theme-toggler">
+    <legend>Theme</legend>
+    <ul class="theme-list">
+      <li v-for="(theme, index) in themes" :key="index">
+        <label class="theme-opt" :for="theme">
+          {{ index + 1 }}
+          <input 
+            type="radio" 
+            name="themer" 
+            :id="theme" 
+            :value="theme"
+            @change="(e)=>this.$emit('setTheme', e.target.value)"
+            :checked="value === theme">
+          <div class="toggle"></div>
+        </label>
+      </li>
+    </ul>
+  </fieldset>
 </template>
 
 <script>
   export default {
     name: 'theme-toggler',
     props: {
-      themes: Array
+      themes: {
+        required: true,
+        type: Array
+      },
+      value: String
     }
   }
 </script>
