@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>calc</h1>
-    <theme-toggler v-bind:themes=themes></theme-toggler>
+    <theme-toggler :themes="themes"></theme-toggler>
   </header>
   <section>
     <screen></screen>
@@ -29,10 +29,11 @@
       keypad
     },
     data() { return {
-      themes: themes
+      theme: themes[0],
+      themes: themes     
     }},
     mounted() {
-      setTheme(themes[0]);
+      setTheme(this.theme);
     }
   }
 

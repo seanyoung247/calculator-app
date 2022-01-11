@@ -1,10 +1,10 @@
 <template>
   <div id="key-container">
     <button v-for="key in keys" 
-      v-bind:key="key.text" 
+      :key="key.text" 
       class="key"
-      v-bind:class="key.type" 
-      v-on:click="key.action">
+      :class="key.type" 
+      @click="key.action">
 
       {{ key.text }}
     </button>
