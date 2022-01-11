@@ -34,15 +34,15 @@
 
 <style scoped>
   .theme-toggler {
-    /* border: none; */
+    border: none;
     position: relative;
   }
 
   .theme-toggler > legend {
     position: absolute;
     left: 0;
-    bottom: 0;
-    transform: translateX(-110%);
+    bottom: 4px;
+    transform: translateX(-125%);
 
     font-size: 12px;
     text-transform: uppercase;
@@ -57,6 +57,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
+    font-size: 12px;
+  }
+
+  .toggle {
+    position: relative;
+    margin-top: 4px;
+    background-color: var(--keys-back);
+    border: 4px solid var(--keys-back);
+    width: 25px;
+    height: 25px;
+  }
+
+  .theme-opt > input[type='radio']:checked ~ .toggle::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-color: var(--eql-color);
+    border-radius: 50%;
+  }
+
+  .theme-list li:first-of-type .toggle {
+    border-radius: 50% 0 0 50%;
+  }
+
+  .theme-list li:last-of-type .toggle {
+    border-radius: 0 50% 50% 0;
+  }
+
+  .theme-opt > input[type='radio'] {
+    display: none;
   }
 </style>
