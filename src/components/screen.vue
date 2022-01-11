@@ -1,12 +1,15 @@
 <template>
   <div id="screen">
-    399,981
+    {{ value }}
   </div>
 </template>
 
 <script>
   export default {
-    name: 'screen'
+    name: 'screen',
+    props: {
+      value: String
+    }
   }
 </script>
 

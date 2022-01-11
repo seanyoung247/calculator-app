@@ -8,7 +8,7 @@
     </theme-toggler>
   </header>
   <section>
-    <screen></screen>
+    <screen :value="expr.formatted"></screen>
   </section>
   <section>
     <keypad></keypad>
