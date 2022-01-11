@@ -9,7 +9,14 @@ export default class Calc {
         return this._expression.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    _clearErr() {
+        if (this._expression === 'ERROR') {
+            this._expression = '';
+        }
+    }
+
     addCharacter(chr) {
+        this._clearErr();
         this._expression += chr;
     }
 
@@ -18,10 +25,16 @@ export default class Calc {
     }
 
     del() {
+        this._clearErr();
         this._expression = this._expression.slice(0, -1);
     }
 
     evaluate() {
-        this._expression = Function(`return ${this._expression}`)().toString();
+        this._clearErr();
+        try {
+            this._expression = Function(`return ${this._expression}`)().toString();
+        } catch (e) {
+            this._expression = 'ERROR';
+        }
     }
 }
