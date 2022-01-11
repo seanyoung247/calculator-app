@@ -12,7 +12,7 @@
             :value="theme"
             @change="(e)=>this.$emit('setTheme', e.target.value)"
             :checked="value === theme">
-          <div class="toggle"></div>
+          <span class="toggle"></span>
         </label>
       </li>
     </ul>
@@ -64,7 +64,7 @@
     position: relative;
     margin-top: 4px;
     background-color: var(--keys-back);
-    border: 4px solid var(--keys-back);
+    border: 5px solid var(--keys-back);
     width: 25px;
     height: 25px;
   }
@@ -80,7 +80,6 @@
   .theme-list li:first-of-type .toggle {
     border-radius: 50% 0 0 50%;
   }
-
   .theme-list li:last-of-type .toggle {
     border-radius: 0 50% 50% 0;
   }
