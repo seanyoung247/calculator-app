@@ -71,6 +71,9 @@
     border: none;
     border-radius: var(--app-radius);
     font-family: 'Spartan', sans-serif;
+
+    padding-top: 5px;
+    line-height: 60px;
   }
 
   .key.wide {
