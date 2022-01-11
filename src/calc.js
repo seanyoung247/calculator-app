@@ -6,7 +6,7 @@ export default class Calc {
 
     get expression() {return this._expression;}
     get formatted() {
-        return this._expression.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return this._expression.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
 
     addCharacter(chr) {
