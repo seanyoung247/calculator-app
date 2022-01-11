@@ -1,7 +1,7 @@
 <template>
   <div id="key-container">
-    <button v-for="key in keys" 
-      :key="key.text" 
+    <button v-for="(key, index) in keys" 
+      :key="index" 
       class="key"
       :class="key.cls"
       :value="key.value"
