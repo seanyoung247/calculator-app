@@ -44,17 +44,17 @@
     }},
     methods: {
       clr() {
-        this.$emit('clear');
+        this.$emit('clr');
       },
       del() {
-        this.$emit('delete');
+        this.$emit('del');
       },
       eql() {
-        this.$emit('equals');
+        this.$emit('eql');
       },
       chr(e) {
         const value = e.target.value;
-        this.$emit('addChr', value);
+        this.$emit('chr', value);
       }
     }
   }
