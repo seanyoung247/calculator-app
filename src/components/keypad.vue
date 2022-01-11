@@ -3,7 +3,8 @@
     <button v-for="key in keys" 
       :key="key.text" 
       class="key"
-      :class="key.type" 
+      :class="key.cls"
+      :value="key.value"
       @click="key.action">
 
       {{ key.text }}
@@ -13,40 +14,49 @@
 </template>
 
 <script>
-  const keys = [
-    { text: "7", action: callback, type: ['num'] },
-    { text: "8", action: callback, type: ['num'] },
-    { text: "9", action: callback, type: ['num'] },
-    { text: "del", action: callback, type: ['del'] },
-
-    { text: "4", action: callback, type: ['num'] },
-    { text: "5", action: callback, type: ['num'] },
-    { text: "6", action: callback, type: ['num'] },
-    { text: "+", action: callback, type: ['num'] },
-
-    { text: "1", action: callback, type: ['num'] },
-    { text: "2", action: callback, type: ['num'] },
-    { text: "3", action: callback, type: ['num'] },
-    { text: "-", action: callback, type: ['num'] },
-
-    { text: ".", action: callback, type: ['num'] },
-    { text: "0", action: callback, type: ['num'] },
-    { text: "/", action: callback, type: ['num'] },
-    { text: "x", action: callback, type: ['num'] },
-
-    { text: "reset", action: callback, type: ['del', 'wide'] },
-    { text: "=", action: callback, type: ['eql', 'wide'] }
-  ];
-
   export default {
     name: 'keypad',
     data() { return {
-      keys: keys
-    }}
-  }
+      keys: [
+        { text: "7", value: "7", action: this.chr, cls: ['num'] },
+        { text: "8", value: "8", action: this.chr, cls: ['num'] },
+        { text: "9", value: "9", action: this.chr, cls: ['num'] },
+        { text: "del", value: "D", action: this.del, cls: ['del'] },
 
-  function callback(e) {
-    console.log(e.target);
+        { text: "4", value: "4", action: this.chr, cls: ['num'] },
+        { text: "5", value: "5", action: this.chr, cls: ['num'] },
+        { text: "6", value: "6", action: this.chr, cls: ['num'] },
+        { text: "+", value: "+", action: this.chr, cls: ['num'] },
+
+        { text: "1", value: "1", action: this.chr, cls: ['num'] },
+        { text: "2", value: "2", action: this.chr, cls: ['num'] },
+        { text: "3", value: "3", action: this.chr, cls: ['num'] },
+        { text: "-", value: "-", action: this.chr, cls: ['num'] },
+
+        { text: ".", value: ".", action: this.chr, cls: ['num'] },
+        { text: "0", value: "0", action: this.chr, cls: ['num'] },
+        { text: "/", value: "/", action: this.chr, cls: ['num'] },
+        { text: "x", value: "*", action: this.chr, cls: ['num'] },
+
+        { text: "reset", value: "C", action: this.clr, cls: ['del', 'wide'] },
+        { text: "=", value: "=", action: this.eql, cls: ['eql', 'wide'] }
+      ]
+    }},
+    methods: {
+      clr() {
+        this.$emit('clear');
+      },
+      del() {
+        this.$emit('delete');
+      },
+      eql() {
+        this.$emit('equals');
+      },
+      chr(e) {
+        const value = e.target.value;
+        this.$emit('addChr', value);
+      }
+    }
   }
 </script>
 
