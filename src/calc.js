@@ -31,10 +31,12 @@ export default class Calc {
 
     evaluate() {
         this._clearErr();
-        try {
-            this._expression = Function(`return ${this._expression}`)().toString();
-        } catch (e) {
-            this._expression = 'ERROR';
+        if (this._expression) {
+            try {
+                this._expression = Function(`return ${this._expression}`)().toString();
+            } catch (e) {
+                this._expression = 'ERROR';
+            }
         }
     }
 }
