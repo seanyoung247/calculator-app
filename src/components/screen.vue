@@ -1,6 +1,6 @@
 <template>
   <div id="screen">
-    {{ value }}
+    <span>{{ value }}</span>
   </div>
 </template>
 
@@ -15,11 +15,17 @@
 
 <style scoped>
   #screen {
+    position: relative;
     background-color: var(--screen-back);
     border-radius: var(--app-radius);
     height: var(--screen-height);
-    padding: var(--app-padding);
-    text-align: right;
+    border: var(--app-padding) solid var(--screen-back);
     font-size: var(--screen-font);
+    overflow: hidden;
+  }
+  #screen > span {
+    position: absolute;
+    right: 0;
+    text-align: right;
   }
 </style>

@@ -9,7 +9,6 @@
 
       {{ key.text }}
     </button>
-
   </div>
 </template>
 
