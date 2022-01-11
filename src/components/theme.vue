@@ -20,3 +20,32 @@
     }
   }
 </script>
+
+<style scoped>
+  .theme-toggler {
+    /* border: none; */
+    position: relative;
+  }
+
+  .theme-toggler > legend {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-110%);
+
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .theme-list {
+    display: flex;
+    list-style: none;
+  }
+
+  .theme-opt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+  }
+</style>
