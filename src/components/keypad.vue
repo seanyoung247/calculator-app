@@ -1,5 +1,6 @@
 <template>
   <div id="key-container">
+    <h2 class="hide-element">keypad</h2>
     <button v-for="(key, index) in keys" 
       :key="index" 
       class="key"

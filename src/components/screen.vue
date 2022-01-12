@@ -1,5 +1,6 @@
 <template>
   <div id="screen">
+    <h2 class="hide-element">screen</h2>
     <span>{{ value }}</span>
   </div>
 </template>

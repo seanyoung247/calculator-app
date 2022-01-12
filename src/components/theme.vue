@@ -1,5 +1,5 @@
 <template>
-  <fieldset class="theme-toggler">
+  <fieldset class="theme-toggler" aria-hidden="true">
     <legend>Theme</legend>
 
       <template v-for="(theme, index) in themes" :key="index">
@@ -105,5 +105,4 @@
     background-color: var(--eql-color);
     transition: left 0.1s;
   }
-
 </style>
