@@ -1,6 +1,3 @@
-<template>
-  <div class="dummy"></div>
-</template>
 
 <script>
   export default {
@@ -18,9 +15,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .dummy {
-    display: none;
-  }
-</style>
