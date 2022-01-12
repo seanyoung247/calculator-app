@@ -1,7 +1,6 @@
 <template>
-  <div id="screen">
-    <h2 class="hide-element">screen</h2>
-    <span>{{ value }}</span>
+  <div class="screen-container" ref="screenOuter">
+    <span class="screen" ref="screenInner">{{ value }}</span>
   </div>
 </template>
 

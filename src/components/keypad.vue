@@ -1,6 +1,5 @@
 <template>
   <div id="key-container">
-    <h2 class="hide-element">keypad</h2>
     <button v-for="(key, index) in keys" :ref="(el)=>addKeyRef(key.codes, el)"
       :key="index" 
       class="key"

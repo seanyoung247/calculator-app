@@ -8,9 +8,11 @@
     </theme-toggler>
   </header>
   <section>
+    <h2 class="hide-element">screen</h2>
     <screen :value="expr.formatted"></screen>
   </section>
   <section>
+    <h2 class="hide-element">keypad</h2>
     <keypad 
       @clr="_=>expr.clear()"
       @del="_=>expr.del()"
