@@ -10,12 +10,17 @@
 
       {{ key.text }}
     </button>
+    <keyboard></keyboard>
   </div>
 </template>
 
 <script>
+  import keyboard from './keyboard.vue';
   export default {
     name: 'keypad',
+    components: {
+      keyboard
+    },
     data() { return {
       keys: [
         { text: "7", value: "7", action: this.chr, cls: ['num'] },
