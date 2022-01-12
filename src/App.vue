@@ -24,7 +24,7 @@
   import screen from './components/screen.vue';
   import keypad from './components/keypad.vue';
 
-  import Calc from './calc.js';
+  import Calc from './modules/calc.js';
 
   export default {
     name: 'App',
