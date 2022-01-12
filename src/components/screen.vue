@@ -25,8 +25,12 @@
     overflow: hidden;
   }
   #screen > span {
+    display: flex;
+    justify-content: right;
+    align-items: center;
     position: absolute;
     right: 0;
-    text-align: right;
+    width: 100%;
+    height: 100%;
   }
 </style>
