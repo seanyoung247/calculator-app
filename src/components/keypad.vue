@@ -1,7 +1,7 @@
 <template>
   <div id="key-container">
     <h2 class="hide-element">keypad</h2>
-    <button v-for="(key, index) in keys" :ref="(el)=>addKeyRef(key.value, el)"
+    <button v-for="(key, index) in keys" :ref="(el)=>addKeyRef(key.codes, el)"
       :key="index" 
       class="key"
       :class="key.cls"
@@ -23,35 +23,33 @@
     },
     data() { return {
       keys: [
-        { text: "7", value: "7", action: this.chr, cls: ['num'] },
-        { text: "8", value: "8", action: this.chr, cls: ['num'] },
-        { text: "9", value: "9", action: this.chr, cls: ['num'] },
-        { text: "del", value: "D", action: this.del, cls: ['del'] },
+        { text: "7", value: "7", codes:["7"], action: this.chr, cls: ['num'] },
+        { text: "8", value: "8", codes:["8"], action: this.chr, cls: ['num'] },
+        { text: "9", value: "9", codes:["9"], action: this.chr, cls: ['num'] },
+        { text: "del", value: "D", codes:["D", "Backspace"], action: this.del, cls: ['del'] },
 
-        { text: "4", value: "4", action: this.chr, cls: ['num'] },
-        { text: "5", value: "5", action: this.chr, cls: ['num'] },
-        { text: "6", value: "6", action: this.chr, cls: ['num'] },
-        { text: "+", value: "+", action: this.chr, cls: ['num'] },
+        { text: "4", value: "4", codes:["4"], action: this.chr, cls: ['num'] },
+        { text: "5", value: "5", codes:["5"], action: this.chr, cls: ['num'] },
+        { text: "6", value: "6", codes:["6"], action: this.chr, cls: ['num'] },
+        { text: "+", value: "+", codes:["+"], action: this.chr, cls: ['num'] },
 
-        { text: "1", value: "1", action: this.chr, cls: ['num'] },
-        { text: "2", value: "2", action: this.chr, cls: ['num'] },
-        { text: "3", value: "3", action: this.chr, cls: ['num'] },
-        { text: "-", value: "-", action: this.chr, cls: ['num'] },
+        { text: "1", value: "1", codes:["1"], action: this.chr, cls: ['num'] },
+        { text: "2", value: "2", codes:["2"], action: this.chr, cls: ['num'] },
+        { text: "3", value: "3", codes:["3"], action: this.chr, cls: ['num'] },
+        { text: "-", value: "-", codes:["-"], action: this.chr, cls: ['num'] },
 
-        { text: ".", value: ".", action: this.chr, cls: ['num'] },
-        { text: "0", value: "0", action: this.chr, cls: ['num'] },
-        { text: "/", value: "/", action: this.chr, cls: ['num'] },
-        { text: "x", value: "*", action: this.chr, cls: ['num'] },
+        { text: ".", value: ".", codes:["."], action: this.chr, cls: ['num'] },
+        { text: "0", value: "0", codes:["0"], action: this.chr, cls: ['num'] },
+        { text: "/", value: "/", codes:["/"], action: this.chr, cls: ['num'] },
+        { text: "x", value: "*", codes:["*"], action: this.chr, cls: ['num'] },
 
-        { text: "reset", value: "C", action: this.clr, cls: ['del', 'wide'] },
-        { text: "=", value: "=", action: this.eql, cls: ['eql', 'wide'] }
+        { text: "reset", value: "C", codes:["C","Delete"], action: this.clr, cls: ['del', 'wide'] },
+        { text: "=", value: "=", codes:["=","Enter"], action: this.eql, cls: ['eql', 'wide'] }
       ],
       keyMap: new Map()
     }},
     methods: {
-      addKeyRef(val, el) {
-        this.keyMap.set(val, el);
-      },
+      // Key event handling
       clr() {
         this.$emit('clr');
       },
@@ -65,6 +63,13 @@
         const value = e.target.value;
         this.$emit('chr', value);
       },
+
+      // Keyboard entry
+      addKeyRef(codes, el) {
+        for (const code of codes) {
+          this.keyMap.set(code, el);
+        }
+      },
       keyup(e) {
         const key = this.keyMap.get(e.key);
         if (key) {
@@ -73,6 +78,7 @@
         }
       },
       keydown(e) {
+        console.log(e.key);
         const key = this.keyMap.get(e.key);
         if (key) {
           key.classList.add('pressed');
