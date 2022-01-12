@@ -74,7 +74,7 @@
         const key = this.keyMap.get(e.key);
         if (key) {
           key.classList.add('pressed');
-          setTimeout(()=>key.classList.remove('pressed'), 250);
+          setTimeout(()=>key.classList.remove('pressed'), 150);
           key.click();
         }
       },
@@ -106,6 +106,8 @@
 
     padding-top: 5px;
     line-height: 60px;
+
+    transition: margin 0.1s, box-shadow 0.1s;
   }
 
   .key.wide {
@@ -114,14 +116,16 @@
   }
 
   .key.num {
-    box-shadow: 0 4px 0 0 var(--key-shadow);
+    --shadow: var(--key-shadow);
+    box-shadow: 0 4px 0 0 var(--shadow);
     background-color: var(--key-color);
     font-size: 28px;
     color: var(--key-text);
   }
 
   .key.del {
-    box-shadow: 0 4px 0 0 var(--del-shadow);
+    --shadow: var(--del-shadow);
+    box-shadow: 0 4px 0 0 var(--shadow);
     background-color: var(--del-color);
     font-size: 16px;
     color: var(--del-text);
@@ -129,7 +133,8 @@
   }
 
   .key.eql {
-    box-shadow: 0 4px 0 0 var(--eql-shadow);
+    --shadow: var(--eql-shadow);
+    box-shadow: 0 4px 0 0 var(--shadow);
     background-color: var(--eql-color);
     font-size: 18px;
     color: var(--eql-text);
@@ -137,10 +142,10 @@
 
   .key:active {
     margin: 4px 0 0 0;
-    box-shadow: none;
+    box-shadow: 0 0px 0 0 var(--shadow);
   }
   .key.pressed {
     margin: 4px 0 0 0;
-    box-shadow: none;
+    box-shadow: 0 0px 0 0 var(--shadow);
   }
 </style>
