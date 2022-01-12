@@ -10,7 +10,7 @@
 
       {{ key.text }}
     </button>
-    <keyboard></keyboard>
+    <keyboard @keyup="keyup" @keydown="keydown"></keyboard>
   </div>
 </template>
 
@@ -60,6 +60,12 @@
       chr(e) {
         const value = e.target.value;
         this.$emit('chr', value);
+      },
+      keyup(e) {
+        console.log(e);
+      },
+      keydown(e) {
+        console.log(e);
       }
     }
   }
