@@ -26,12 +26,6 @@
 
   import Calc from './calc.js';
 
-  import './assets/global.css'
-
-  const themes = [
-    'dark', 'light', 'high-contrast'
-  ]
-
   export default {
     name: 'App',
     components: {
@@ -41,7 +35,7 @@
     },
     data() { return {
       theme: 0,
-      themes: themes,
+      themes: ['dark', 'light', 'high-contrast'],
       expr: new Calc()
     }},
     methods: {
@@ -57,10 +51,4 @@
   }
 </script>
 
-<style>
-  header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-</style>
+<style src="./assets/global.css"></style>

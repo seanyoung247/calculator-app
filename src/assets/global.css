@@ -32,6 +32,12 @@ body {
   background-color: var(--main-back);
 }
 
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 #app {
   display: flex;
   flex-direction: column;
