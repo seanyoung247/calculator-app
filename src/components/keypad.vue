@@ -1,7 +1,7 @@
 <template>
   <div id="key-container">
     <h2 class="hide-element">keypad</h2>
-    <button v-for="(key, index) in keys" 
+    <button v-for="(key, index) in keys" :ref="(el)=>addKeyRef(key.value, el)"
       :key="index" 
       class="key"
       :class="key.cls"
@@ -45,9 +45,13 @@
 
         { text: "reset", value: "C", action: this.clr, cls: ['del', 'wide'] },
         { text: "=", value: "=", action: this.eql, cls: ['eql', 'wide'] }
-      ]
+      ],
+      keyMap: new Map()
     }},
     methods: {
+      addKeyRef(val, el) {
+        this.keyMap.set(val, el);
+      },
       clr() {
         this.$emit('clr');
       },
@@ -62,10 +66,17 @@
         this.$emit('chr', value);
       },
       keyup(e) {
-        console.log(e);
+        const key = this.keyMap.get(e.key);
+        if (key) {
+          key.classList.remove('pressed');
+          key.click();
+        }
       },
       keydown(e) {
-        console.log(e);
+        const key = this.keyMap.get(e.key);
+        if (key) {
+          key.classList.add('pressed');
+        }
       }
     }
   }
@@ -125,6 +136,10 @@
   }
 
   .key:active {
+    margin: 4px 0 0 0;
+    box-shadow: none;
+  }
+  .key.pressed {
     margin: 4px 0 0 0;
     box-shadow: none;
   }
