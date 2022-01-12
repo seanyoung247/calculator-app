@@ -10,7 +10,7 @@
 
       {{ key.text }}
     </button>
-    <keyboard @keyup="keyup" @keydown="keydown"></keyboard>
+    <keyboard @keyup="keyup"></keyboard>
   </div>
 </template>
 
@@ -73,17 +73,11 @@
       keyup(e) {
         const key = this.keyMap.get(e.key);
         if (key) {
-          key.classList.remove('pressed');
+          key.classList.add('pressed');
+          setTimeout(()=>key.classList.remove('pressed'), 250);
           key.click();
         }
       },
-      keydown(e) {
-        console.log(e.key);
-        const key = this.keyMap.get(e.key);
-        if (key) {
-          key.classList.add('pressed');
-        }
-      }
     }
   }
 </script>
