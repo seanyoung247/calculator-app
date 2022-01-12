@@ -40,19 +40,19 @@
       keypad
     },
     data() { return {
-      theme: themes[0],
+      theme: 0,
       themes: themes,
       expr: new Calc()
     }},
     methods: {
-      setTheme(name) {
-        document.body.classList.remove(this.theme);
-        this.theme = name;
-        document.body.classList.add(this.theme);
+      setTheme(index) {
+        document.body.classList.remove(this.themes[this.theme]);
+        this.theme = index;
+        document.body.classList.add(this.themes[this.theme]);
       }
     },
     mounted() {
-      this.setTheme(this.theme);
+      this.setTheme(0);
     }
   }
 </script>

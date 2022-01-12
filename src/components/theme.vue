@@ -1,21 +1,26 @@
 <template>
   <fieldset class="theme-toggler">
     <legend>Theme</legend>
-    <ul class="theme-list">
-      <li v-for="(theme, index) in themes" :key="index">
+
+      <template v-for="(theme, index) in themes" :key="index">
+
         <label class="theme-opt" :for="theme">
           {{ index + 1 }}
-          <input 
-            type="radio" 
-            name="themer" 
-            :id="theme" 
-            :value="theme"
-            @change="(e)=>this.$emit('setTheme', e.target.value)"
-            :checked="value === theme">
-          <span class="toggle"></span>
+          <span class="toggle-back"></span>
         </label>
-      </li>
-    </ul>
+        <input 
+          type="radio" 
+          name="themer" 
+          class="theme-radio"
+          :id="theme" 
+          :value="theme"
+          :data-index="index"
+          @change="selectTheme"
+          :checked="value === index">
+      </template>
+
+      <span class="toggle" :style="position"></span>
+
   </fieldset>
 </template>
 
@@ -27,13 +32,29 @@
         required: true,
         type: Array
       },
-      value: String
+      value: {
+        required: true,
+        type: Number
+      }
+    },
+    data() { return {
+      selected: 0
+    }},
+    computed: {
+      position() { return {'--pos': this.selected}}
+    },
+    methods: {
+      selectTheme(e) {
+        this.selected = parseInt(e.target.dataset.index);
+        this.$emit('setTheme', this.selected);
+      }
     }
   }
 </script>
 
 <style scoped>
   .theme-toggler {
+    display: flex;
     border: none;
     position: relative;
   }
@@ -48,9 +69,8 @@
     text-transform: uppercase;
   }
 
-  .theme-list {
-    display: flex;
-    list-style: none;
+  .theme-radio {
+    display: none;
   }
 
   .theme-opt {
@@ -60,31 +80,30 @@
     font-size: 12px;
   }
 
-  .toggle {
-    position: relative;
+  .toggle-back {
     margin-top: 4px;
     background-color: var(--keys-back);
     border: 5px solid var(--keys-back);
     width: 25px;
-    height: 25px;
+    height: 25px;    
   }
 
-  .theme-opt > input[type='radio']:checked ~ .toggle::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background-color: var(--eql-color);
-    border-radius: 50%;
-  }
-
-  .theme-list li:first-of-type .toggle {
+  .theme-opt:first-of-type > .toggle-back {
     border-radius: 50% 0 0 50%;
   }
-  .theme-list li:last-of-type .toggle {
+  .theme-opt:last-of-type > .toggle-back {
     border-radius: 0 50% 50% 0;
   }
 
-  .theme-opt > input[type='radio'] {
-    display: none;
+  .toggle {
+    position: absolute;
+    bottom: 5px;
+    left: calc(5px + (25px * var(--pos)));
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--eql-color);
+    transition: left 0.1s;
   }
+
 </style>
