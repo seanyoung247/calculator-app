@@ -30,6 +30,7 @@ body {
   min-height: 100vh;
 
   background-color: var(--main-back);
+
 }
 
 header {
@@ -46,8 +47,9 @@ header {
   width: var(--app-width);
   padding: var(--app-padding);
 
-  font-family: 'Spartan', sans-serif;
   font-size: 16px;
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
 
   color: var(--body-text);
 }
