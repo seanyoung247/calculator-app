@@ -1,6 +1,8 @@
+
 <template>
   <div class="screen-container" ref="screenOuter">
-    <span class="screen" ref="screenInner">{{ value }}</span>
+    {{value}}
+    <!-- <div class="screen" :style="sizeText()" ref="screenInner">{{ value }}</div> -->
   </div>
 </template>
 
@@ -14,7 +16,18 @@
     },
     methods: {
       sizeText() {
+        const [outer, inner] = [this.$refs.screenOuter, this.$refs.screenInner];
 
+        if (outer && inner) {
+          const screenWidth = outer.clientWidth || 1;
+          const textWidth = measureText(this.value, outer);
+          if (textWidth > screenWidth) {
+            const ratio = Math.max(screenWidth / textWidth, 0.5);
+            return `--resize: ${ratio};`;
+          }
+        }
+
+        return "--resize: 1;";
       }
     },
     mounted() {
