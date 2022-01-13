@@ -40,22 +40,25 @@
 <style scoped>
   .screen-container {
     --resize: 1;
-    position: relative;
-    background-color: var(--screen-back);
-    border-radius: var(--app-radius);
+
     height: var(--screen-height);
+
+    text-align: right;
+
+    background-color: var(--screen-back);
+
+    border-radius: var(--app-radius);
     border: var(--app-padding) solid var(--screen-back);
+    border-bottom: none;
     font-size: var(--screen-font);
-    overflow: hidden;
+
+    overflow-y: hidden;
+    overflow-x: auto;
   }
   .screen {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    min-width: 100%;
     height: 100%;
+    min-width: 100%;
+    text-align: right;
     font-size: calc(var(--screen-font) * var(--resize));
   }
 </style>
