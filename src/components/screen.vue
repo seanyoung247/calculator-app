@@ -17,7 +17,8 @@
       value: String
     },
     data() { return {
-      textRatio: 1
+      textRatio: 1,
+      ro: null
     }},
     methods: {
       sizeText() {
@@ -29,6 +30,13 @@
           this.textRatio = 1;
         }
       }
+    },
+    mounted() {
+      this.ro = new ResizeObserver(this.sizeText)
+        .observe(this.$refs.screen);
+    },
+    beforeUnmount() {
+      this.ro.unobserve(this.$refs.screen);
     },
     watch: {
       value() { this.sizeText(); }
