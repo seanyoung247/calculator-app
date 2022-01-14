@@ -6,16 +6,19 @@ export default class Calc {
 
     get expression() {return this._expression;}
     get formatted() {
-        return (
-            // Split expression on decimal point and operations
-            this._expression.split(/([.|/|*|+|-])/g) 
-            .map((c,i,a) => 
-                // If current is a number not preceeded by a decimal insert commas at thousands
-                (!isNaN(c) && a[i-1] != '.') ? c.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : c
-            ).join('')
-        );
-        // Better, but doesn't work in Safari
-        // return this._expression.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+        try {
+            return this._expression.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+        } catch {
+            // Fallback for browsers that don't support above regex
+            return (
+                // Split expression on decimal point and operations
+                this._expression.split(/([.|/|*|+|-])/g) 
+                    .map((c,i,a) => 
+                        // If current is a number not preceeded by a decimal insert commas at thousands
+                        (!isNaN(c) && a[i-1] != '.') ? c.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : c
+                    ).join('')
+            );
+        }
     }
 
     _clearErr() {
