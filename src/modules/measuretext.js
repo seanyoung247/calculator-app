@@ -6,6 +6,7 @@
  * @returns Width of text in pixels
  */
 function measureText(text, font) {
+    // Allows reusing of the same canvas element rather than recreating it each time
     if (!measureText.canvas) measureText.canvas = document.createElement("canvas");
 
     const ctx = measureText.canvas.getContext("2d");

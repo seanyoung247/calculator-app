@@ -7,8 +7,8 @@ export default class Calc {
     get expression() {return this._expression;}
     get formatted() {
         return (
-            this._expression
-            .split(/([.|/|*|+|-])/g) // Split expression on decimal point and operations
+            // Split expression on decimal point and operations
+            this._expression.split(/([.|/|*|+|-])/g) 
             .map((c,i,a) => 
                 // If current is a number not preceeded by a decimal insert commas at thousands
                 (!isNaN(c) && a[i-1] != '.') ? c.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : c
