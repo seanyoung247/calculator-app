@@ -1,7 +1,6 @@
 
 <template>
   <div class="screen-container" ref="screen">
-    <!-- {{value}} -->
     <div class="screen">{{ value }}</div>
   </div>
 </template>
@@ -25,6 +24,7 @@
         const screen = this.$refs.screen;
 
         if (screen) {
+          // Ratio is maximum width divided by actual width clamped between 0.5 (half size) and 1 (full size)
           this.textRatio = clamp( (screen.clientWidth / measureText(this.value, getFont(screen))), 0.5, 1.0 );
         } else {
           this.textRatio = 1;
@@ -32,6 +32,7 @@
       }
     },
     mounted() {
+      // Watch for changes in element size to recalculate font size
       this.ro = new ResizeObserver(this.sizeText)
         .observe(this.$refs.screen);
     },
@@ -39,6 +40,7 @@
       this.ro.unobserve(this.$refs.screen);
     },
     watch: {
+      // Check if font needs to be resized when value changes
       value() { this.sizeText(); }
     }
   }
