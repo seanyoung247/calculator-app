@@ -3,6 +3,7 @@
 </template>
 
 <script>
+  // Just captures global keyboard events and dispatches them to parent
   export default {
     name: "keyboard",
     mounted() {

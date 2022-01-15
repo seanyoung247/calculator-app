@@ -71,6 +71,7 @@
       },
       keyup(e) {
         const key = this.keyMap.get(e.key);
+        // If the pressed key is tied to a button, simulate button click
         if (key) {
           key.classList.add('pressed');
           setTimeout(()=>key.classList.remove('pressed'), 150);
