@@ -19,7 +19,7 @@
           :checked="value === index">
       </template>
 
-      <span class="toggle" :style="position"></span>
+      <span class="toggle"></span>
 
   </fieldset>
 </template>
@@ -40,9 +40,6 @@
     data() { return {
       selected: 0
     }},
-    computed: {
-      position() { return {'--pos': this.selected}}
-    },
     methods: {
       selectTheme(e) {
         this.selected = parseInt(e.target.dataset.index);
@@ -98,7 +95,7 @@
   .toggle {
     position: absolute;
     bottom: 5px;
-    left: calc(5px + (25px * var(--pos)));
+    left: calc(5px + (25px * v-bind(selected)));
     width: 15px;
     height: 15px;
     border-radius: 50%;
