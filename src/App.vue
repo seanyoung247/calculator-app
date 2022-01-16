@@ -4,7 +4,7 @@
     <h1>calc</h1>
     <theme-toggler 
       :themes="themes" 
-      :value="theme" 
+      :value="theme"
       @setTheme="setTheme">
     </theme-toggler>
   </header>
@@ -27,6 +27,7 @@
   import screen from './components/screen.vue';
   import keypad from './components/keypad.vue';
 
+  import { getSetting, setSetting } from './modules/settings.mjs';
   import Calc from './modules/calc.mjs';
 
   export default {
@@ -46,10 +47,13 @@
         document.body.classList.remove(this.themes[this.theme]);
         this.theme = index;
         document.body.classList.add(this.themes[this.theme]);
+
+        setSetting('prefers-color-scheme', this.theme.toString());
       }
     },
     mounted() {
-      this.setTheme(0);
+      const theme = parseInt(getSetting('prefers-color-scheme', '0'));
+      this.setTheme(theme);
     }
   }
 </script>

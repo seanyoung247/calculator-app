@@ -13,10 +13,10 @@
           name="themer" 
           class="theme-radio"
           :id="theme" 
-          :value="theme"
+          :value="index"
           :data-index="index"
           @change="selectTheme"
-          :checked="value === index">
+          v-model="selected">
       </template>
 
       <span class="toggle"></span>
@@ -44,6 +44,11 @@
       selectTheme(e) {
         this.selected = parseInt(e.target.dataset.index);
         this.$emit('setTheme', this.selected);
+      }
+    },
+    watch: {
+      value() {
+        this.selected = this.value;
       }
     }
   }
