@@ -1,7 +1,7 @@
 
 <template>
-  <div class="screen-container" @mousedown="dragStart" ref="screen">
-    <div class="screen">{{ value }}</div>
+  <div class="screen" @mousedown="dragStart" ref="screen">
+    <div class="display">{{ value }}</div>
   </div>
 </template>
 
@@ -27,7 +27,6 @@
         if (screen) {
           // Ratio is maximum width divided by actual width clamped between 0.5 (half size) and 1 (full size)
           this.textRatio = clamp( (screen.clientWidth / measureText(this.value, getFont(screen))), 0.5, 1.0 );
-          // Try to keep 
         } else {
           this.textRatio = 1;
         }
@@ -42,6 +41,7 @@
       },
       dragMove(e) {
         const dX = e.clientX - this.scrollPos.x;
+        // In order to ensure number is right aligned scroll direction is reversed
         this.$refs.screen.scrollLeft = -(this.scrollPos.xPos - dX);
 
       },
@@ -66,32 +66,26 @@
 </script>
 
 <style scoped>
-  .screen-container {
+  .screen {
     display: flex;
     flex-direction: row-reverse;
     height: var(--screen-height);
 
-    text-align: right;
-
     background-color: var(--screen-back);
-    font-size: var(--screen-font);
+    font-size: var(--screen-font-size);
 
     border-radius: var(--app-radius);
     border: var(--app-padding) solid var(--screen-back);
-    border-bottom: none;
-    padding-bottom: var(--app-padding);
 
     overflow: hidden;
-    /* overflow-y: hidden;
-    overflow-x: auto; */
   }
-  .screen {
+
+  .display {
     display: inline-flex;
     justify-content: end;
     align-items: center;
 
     height: 100%;
-    min-width: 100%; 
-    font-size: calc(var(--screen-font) * v-bind(textRatio));
+    font-size: calc(var(--screen-font-size) * v-bind(textRatio));
   }
 </style>

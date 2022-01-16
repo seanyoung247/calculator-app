@@ -74,7 +74,7 @@
         // If the pressed key is tied to a button, simulate button click
         if (key) {
           key.classList.add('pressed');
-          setTimeout(()=>key.classList.remove('pressed'), 150);
+          setTimeout(()=>key.classList.remove('pressed'), 50);
           key.click();
         }
       },
@@ -102,12 +102,12 @@
 
     border: none;
     border-radius: var(--app-radius);
-    font-family: 'Spartan', sans-serif;
+    font-family: var(--font-family);
 
     padding-top: 5px;
     line-height: 60px;
 
-    transition: margin 0.1s, box-shadow 0.1s;
+    transition: margin 0.05s, box-shadow 0.1s;
   }
 
   .key.wide {

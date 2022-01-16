@@ -9,7 +9,10 @@
   --key-width: 60px;
   --key-height: 60px;
   --screen-height: 88px;
-  --screen-font: 32px;
+  --screen-font-size: 32px;
+
+  --font-family: 'Spartan', sans-serif;
+  --font-weight: 700;
 }
 
 * {
@@ -48,8 +51,8 @@ header {
   padding: var(--app-padding);
 
   font-size: 16px;
-  font-family: 'Spartan', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
 
   color: var(--body-text);
 }
