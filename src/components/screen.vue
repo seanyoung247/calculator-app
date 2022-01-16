@@ -1,6 +1,10 @@
 
 <template>
-  <div class="screen" @mousedown="dragStart" ref="screen">
+  <div class="screen" ref="screen"
+    @mousedown="dragStart" 
+    @touchstart="touchStart"
+    @touchmove="touchMove">
+
     <div class="display">{{ value }}</div>
   </div>
 </template>
@@ -31,6 +35,8 @@
           this.textRatio = 1;
         }
       },
+      
+      // Mouse scrolling
       dragStart(e) {
         this.scrollPos = {
           xPos: this.$refs.screen.scrollLeft,
@@ -48,6 +54,18 @@
         this.$refs.screen.classList.remove('scrolling');
         document.removeEventListener('mousemove', this.dragMove);
         document.removeEventListener('mouseup', this.dragEnd);
+      },
+
+      // Touch Scrolling
+      touchStart(e) {
+        this.scrollPos = {
+          xPos: this.$refs.screen.scrollLeft,
+          x: e.touches[0].clientX
+        };
+      },
+      touchMove(e) {
+        const dX = e.touches[0].clientX - this.scrollPos.x;
+        this.$refs.screen.scrollLeft = this.scrollPos.xPos - dX;
       }
     },
     mounted() {
