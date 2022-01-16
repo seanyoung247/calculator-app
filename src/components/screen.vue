@@ -176,21 +176,13 @@
     font-size: calc(var(--screen-font-size) * v-bind(textRatio));
   }
 
-  .screen::before {
+  .screen::before, .screen::after {
     content: '';
     position: relative;
     z-index: 2;
 
     flex: 0 0 var(--app-padding);
     background: var(--screen-back);  
-  }
-  .screen::after {
-    content: '';
-    position: relative;
-    z-index: 2;
-
-    flex: 0 0 var(--app-padding);
-    background: var(--screen-back);
   }
 
   .scrolling {
