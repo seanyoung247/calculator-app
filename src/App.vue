@@ -1,3 +1,4 @@
+
 <template>
   <header>
     <h1>calc</h1>
@@ -26,7 +27,7 @@
   import screen from './components/screen.vue';
   import keypad from './components/keypad.vue';
 
-  import Calc from './modules/calc.js';
+  import Calc from './modules/calc.mjs';
 
   export default {
     name: 'App',

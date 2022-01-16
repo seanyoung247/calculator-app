@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import { measureText, getFont } from '../modules/measuretext.js';
+  import { measureText, getFont } from '../modules/measuretext.mjs';
 
   export default {
     name: 'screen',
