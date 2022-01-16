@@ -36,16 +36,16 @@
           xPos: this.$refs.screen.scrollLeft,
           x: e.clientX
         };
+        this.$refs.screen.classList.add('scrolling');
         document.addEventListener('mousemove', this.dragMove);
         document.addEventListener('mouseup', this.dragEnd);
       },
       dragMove(e) {
         const dX = e.clientX - this.scrollPos.x;
-        // In order to ensure number is right aligned scroll direction is reversed
-        this.$refs.screen.scrollLeft = -(this.scrollPos.xPos - dX);
-
+        this.$refs.screen.scrollLeft = this.scrollPos.xPos - dX;
       },
       dragEnd() {
+        this.$refs.screen.classList.remove('scrolling');
         document.removeEventListener('mousemove', this.dragMove);
         document.removeEventListener('mouseup', this.dragEnd);
       }
@@ -77,6 +77,9 @@
     border-radius: var(--app-radius);
     border: var(--app-padding) solid var(--screen-back);
 
+    cursor: grab;
+    user-select: auto;
+
     overflow: hidden;
   }
 
@@ -87,5 +90,10 @@
 
     height: 100%;
     font-size: calc(var(--screen-font-size) * v-bind(textRatio));
+  }
+
+  .scrolling {
+    cursor: grabbing;
+    user-select: none;
   }
 </style>
