@@ -1,7 +1,8 @@
 
 <template>
   <div class="screen" ref="screen"
-    @mousedown="dragStart" 
+    @wheel="wheelScroll"
+    @mousedown="dragStart"
     @touchstart="touchStart"
     @touchmove="touchMove">
 
@@ -36,7 +37,13 @@
         }
       },
       
-      // Mouse scrolling
+      // Mouse wheel scrolling
+      wheelScroll(e) {
+        e.preventDefault();
+        this.$refs.screen.scrollLeft += e.deltaY;
+      },
+
+      // Mouse drag scrolling
       dragStart(e) {
         this.scrollPos = {
           xPos: this.$refs.screen.scrollLeft,
