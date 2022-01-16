@@ -2,6 +2,7 @@
 <template>
   <div class="screen-container">
     <button class="left-btn" @click="nudge(-1)" ref="leftBtn">
+      <span class="hide-element">Scroll Left</span>
       <svg class="arrow-icon" xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'>
         <path d="m6.2851 1.0156 1.4142 1.4142-2.5702 2.5702 2.5702 2.5702-1.4142 1.4142-3.9844-3.9844z"/>
       </svg>
@@ -15,6 +16,7 @@
       <div class="display">{{ value }}</div>
     </div>
     <button class="right-btn" @click="nudge(1)" ref="rightBtn">
+      <span class="hide-element">Scroll Right</span>
       <svg class="arrow-icon" xmlns='http://www.w3.org/2000/svg'
            width='10' height='10' viewBox='0 0 10 10'>
         <path d="m2.3007 2.4298 1.4142-1.4142 3.9844 3.9844-3.9844 3.9844-1.4142-1.4142 2.5702-2.5702z"/>
