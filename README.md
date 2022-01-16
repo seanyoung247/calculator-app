@@ -40,5 +40,5 @@ My primary aim was to learn the Vue framework by building a simple vue app. I al
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/seanyoung247/calculator-app)
-- Live Site URL: [Add live site URL here](https://seanyoung247.github.io/calculator-app/)
+- Solution URL: [Github](https://github.com/seanyoung247/calculator-app)
+- Live Site URL: [Github pages](https://seanyoung247.github.io/calculator-app/)
