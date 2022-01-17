@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Aims
 
-My primary aim was to learn the Vue framework by building a simple vue app. I also wanted to explore how much interactivity and reactivity can be built purely in CSS.
+My primary aim was to learn the Vue framework by building a simple vue app. I also wanted to explore how much interactivity and reactivity can be built purely in CSS. Also how well Javascript and CSS can be coupled for dynamic effects.
 
 #### Current features
 
