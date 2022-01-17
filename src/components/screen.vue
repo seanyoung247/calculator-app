@@ -51,7 +51,7 @@
           this.textRatio = Math.min(Math.max(screenWidth / textWidth, 0.5), 1.0);
 
           this.screenWidth = (this.textRatio > 0.5) ? screenWidth : 
-                              (Math.ceil(textWidth / lBtn.clientWidth) * lBtn.clientWidth) * this.textRatio;
+                              ((Math.ceil(textWidth / lBtn.clientWidth) + 1) * lBtn.clientWidth) * this.textRatio;
         }
       },
 
