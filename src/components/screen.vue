@@ -48,13 +48,13 @@
         if (screen && lBtn && rBtn) {
           const screenWidth = screen.clientWidth - (lBtn.clientWidth + rBtn.clientWidth);
           const textWidth = measureText(this.value, getFont(screen));
-          
+
           // Calculates the scaling ratio for the text if it can't all fit on screen.
           // The font size can then be multiplied by this number so the text fits.
           this.textRatio = Math.min(Math.max(screenWidth / textWidth, 0.5), 1.0);
 
-          // Makes the screen scale in increments so the whole overflow button is revealed if overflow occurs
-          // textWidth is the width of the text at full size, so we need to halve the result
+          // Makes the screen width scale in increments so the whole overflow button is revealed if overflow occurs
+          // textWidth is the width of the text at full size, so we need to halve the result when ratio is 0.5
           this.screenWidth = (this.textRatio > 0.5) ? screenWidth : 
                               ((Math.ceil(textWidth / lBtn.clientWidth) + 1) * lBtn.clientWidth) / 2;
         }

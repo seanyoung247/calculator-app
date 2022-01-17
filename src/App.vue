@@ -16,9 +16,9 @@
     <section>
       <h2 class="hide-element">keypad</h2>
       <keypad 
-        @clr="_=>expr.clear()"
-        @del="_=>expr.del()"
-        @eql="_=>expr.evaluate()"
+        @clr="()=>expr.clear()"
+        @del="()=>expr.del()"
+        @eql="()=>expr.evaluate()"
         @chr="v=>expr.addCharacter(v)"></keypad>
     </section>
   </main>
