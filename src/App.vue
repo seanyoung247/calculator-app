@@ -22,6 +22,12 @@
         @chr="v=>expr.addCharacter(v)"></keypad>
     </section>
   </main>
+  <footer>
+    <ul class="attribution">
+      <li>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</li>
+      <li>Coded by <a href="https://github.com/seanyoung247/" target="_blank">Sean Young</a>.</li>
+    </ul>
+  </footer>
 </template>
 
 <script>

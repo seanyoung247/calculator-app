@@ -31,7 +31,6 @@ body {
   min-height: 100vh;
 
   background-color: var(--main-back);
-
 }
 
 header {
@@ -61,6 +60,19 @@ main {
 
   gap: var(--app-padding);
 }
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  list-style: none;
+}
+.attribution li {
+  padding: 0.5em;
+}
+.attribution a {
+  color: var(--eql-color);
+}
+
 .hide-element {
   position: absolute;
 
