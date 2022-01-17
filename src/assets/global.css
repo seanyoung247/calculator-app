@@ -55,6 +55,12 @@ header {
   color: var(--body-text);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--app-padding);
+}
 .hide-element {
   position: absolute;
 
