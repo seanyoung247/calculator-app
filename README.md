@@ -8,6 +8,7 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Aims](#aims)
+    - [Current features](#Current-features)
   - [Built with](#built-with)
   - [Links](#links)
 
@@ -23,11 +24,40 @@ Users should be able to:
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
-![](./design/screenshot.png)
+![App Screenshot](./design/screenshot.png)
 
 ### Aims
 
 My primary aim was to learn the Vue framework by building a simple vue app. I also wanted to explore how much interactivity and reactivity can be built purely in CSS.
+
+#### Current features
+
+Currently the app has the following features:
+
+- App:
+  - Automated vertical layout and spacing using flexbox
+  - Component based architecture:
+    - Keypad:
+      - Automatic generation of keys based on template and layout based by css grid
+      - Keyboard entry with auto-binding of keys to buttons and button animation on keypress
+    - Themes:
+      - Theme switching based on css class templates
+      - Theme toggle generated based on available themes
+      - User chosen theme loading and saving using localStorage
+    - Display:
+      - Automatically adjusts text size to fit screen space down to a minimum font size
+      - Allows touch, mouse drag, wheel and button scrolling if text is wider than screen width after minimum font size reached
+      - Automatically shows and hides screen overflow indicators and buttons
+  - Logic in modules:
+    - Calc:
+      - Evaluates expressions with Javascript interpreter
+      - Autoformats numbers with thousands seperators for display
+      - Deals with errors and misformed expressions
+      - Allows expression chaining
+    - measureText:
+      - Measures pixel width of rendered text for a given element using the canvas API
+    - settings:
+      - Encapsulates loading and saving settings to localStorage
 
 ### Built with
 
