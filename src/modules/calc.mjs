@@ -1,4 +1,6 @@
 
+const validOps = ['/','*','+','-'];
+
 export default class Calc {
     constructor() {
         this._expression = '';
@@ -21,21 +23,32 @@ export default class Calc {
     _clearErr() {
         if (this._expression === 'ERROR') {
             this._expression = '';
+            this._evaluated = false;
         }
     }
 
     addCharacter(chr) {
         this._clearErr();
-        this._expression += chr;
+        
+        // Don't add if evaluated and not operation
+        if ( !this._evaluated || validOps.includes(chr) ) {
+            this._expression += chr;
+            this._evaluated = false;
+        }
     }
 
     clear() {
         this._expression = '';
+        this._evaluated = false;
     }
 
     del() {
-        this._clearErr();
-        this._expression = this._expression.slice(0, -1);
+        if (!this._evaluated) {
+            this._clearErr();
+            this._expression = this._expression.slice(0, -1);
+        } else {
+            this.clear();
+        }
     }
 
     evaluate() {
@@ -43,6 +56,7 @@ export default class Calc {
         if (this._expression) {
             try {
                 this._expression = Function(`return ${this._expression}`)().toString();
+                this._evaluated = true;
             } catch (e) {
                 this._expression = 'ERROR';
             }
