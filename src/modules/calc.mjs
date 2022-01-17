@@ -1,24 +1,26 @@
 
-const validOps = ['/','*','+','-'];
-
 export default class Calc {
     constructor() {
         this._expression = '';
+        this._evaluated = false;
     }
 
     get expression() {return this._expression;}
     get formatted() {
-        //return this._expression.rßeplace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-        // Safari still doesn't support features everyone else has for years...
+        const expr = this._expression || '0';
+        //return expr.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+        // Safari still doesn't support regex features everyone else has for years...
         return (
             // Split expression on decimal point and operations
-            this._expression.split(/([.|/|*|+|-])/g) 
+            expr.split(/([.|/|*|+|-])/g) 
                 .map((c,i,a) => 
                     // If current is a number not preceeded by a decimal insert commas at thousands
                     (!isNaN(c) && a[i-1] != '.') ? c.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : c
                 ).join('')
         );
     }
+
+    static get validOps() { return ['/','*','+','-']; }
 
     _clearErr() {
         if (this._expression === 'ERROR') {
@@ -31,7 +33,7 @@ export default class Calc {
         this._clearErr();
         
         // Don't add if evaluated and not operation
-        if ( !this._evaluated || validOps.includes(chr) ) {
+        if ( !this._evaluated || Calc.validOps.includes(chr) ) {
             this._expression += chr;
             this._evaluated = false;
         }
